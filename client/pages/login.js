@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import LoginRegisterForm from '../components/LoginRegisterForm';
 import { toast } from 'react-toastify';
+import { Button } from 'antd';
+import { GoogleOutlined } from '@ant-design/icons';
 
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState('');
@@ -39,9 +41,35 @@ const Login = () => {
       });
   };
 
+  const googleLogin = async () => {
+    await firebase
+      .auth()
+      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .then((user) => {
+        console.log('LOGIN', user);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast(err.message);
+      });
+  };
+
   return (
     <div className='container'>
       <h2 className='text-center pt-4 display-4'>Login / Register</h2>
+
+      <Button
+        onClick={googleLogin}
+        className='mb-3 col-md-6 offset-md-3'
+        type='danger'
+        shape='round'
+        icon={<GoogleOutlined />}
+        size='large'
+        block
+      >
+        Login with Google
+      </Button>
+
       <div className='row'>
         <LoginRegisterForm
           email={loginEmail}
@@ -51,6 +79,7 @@ const Login = () => {
           handleSubmit={login}
           buttonName='Login'
         />
+
         <LoginRegisterForm
           email={registerEmail}
           setEmail={setRegisterEmail}
