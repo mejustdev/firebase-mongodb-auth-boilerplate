@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import firebase from '../firebase';
 import { Context } from '../context';
 import { axiosAuth } from '../actions/axios';
+import { setCookie, destroyCookie } from 'nookies';
 
 const FirebaseAuthState = ({ children }) => {
   const { dispatch } = useContext(Context);
@@ -12,9 +13,12 @@ const FirebaseAuthState = ({ children }) => {
         dispatch({
           type: 'LOGOUT',
         });
+        destroyCookie(null, 'token');
+        setCookie(null, 'token', '', {});
       } else {
         const { token } = await user.getIdTokenResult();
-        console.log('TOKEN', token);
+        destroyCookie(null, 'token');
+        setCookie(null, 'token', token, {});
         axiosAuth.post('/current-user', {}).then((res) => {
           console.log('RES =====> ', res);
           dispatch({
