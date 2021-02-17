@@ -13,3 +13,10 @@ export const currentUser = async (req, res) => {
     });
   }
 };
+
+export const privateRoute = async (req, res) => {
+  console.log('REQ HEADERS TOKEN IN PRIVATE ROUTE', req.headers.token);
+  res.json({
+    ok: true,
+  });
+};
