@@ -9,6 +9,7 @@ const Nav = () => {
     state: { user },
     dispatch,
   } = useContext(Context);
+  // const { user } = state;
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -25,13 +26,17 @@ const Nav = () => {
         <a className='nav-link'>Home</a>
       </Link>
 
+      <Link href={user ? '/user/new-profile' : '/login'}>
+        <a className='nav-link'>Create new profile</a>
+      </Link>
+
       {user ? (
         <a onClick={handleLogout} className='nav-link'>
           Logout
         </a>
       ) : (
         <Link href='/login'>
-          <a className='nav-link'>Login </a>
+          <a className='nav-link'>Login</a>
         </Link>
       )}
     </nav>

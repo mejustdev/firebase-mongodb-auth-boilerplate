@@ -4,17 +4,18 @@ import { useRouter } from 'next/router';
 import LoginRegisterForm from '../components/LoginRegisterForm';
 import { toast } from 'react-toastify';
 import { Button } from 'antd';
-import { GoogleOutlined } from '@ant-design/icons';
+import { GoogleOutlined, SyncOutlined } from '@ant-design/icons';
 
 const Login = () => {
-  const [loginEmail, setLoginEmail] = useState('');
-  const [loginPass, setLoginPass] = useState('');
+  const [loginEmail, setLoginEmail] = useState('test2@test.com');
+  const [loginPass, setLoginPass] = useState('123456');
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPass, setRegisterPass] = useState('');
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const register = async () => {
-    // console.log(registerEmail, registerPass);
+    setLoading(true);
     await firebase
       .auth()
       .createUserWithEmailAndPassword(registerEmail, registerPass)
@@ -25,11 +26,13 @@ const Login = () => {
       .catch((err) => {
         console.log(err);
         toast(err.message);
+        setLoading(false);
       });
   };
 
   const login = async () => {
     // console.log(loginEmail, loginPass);
+    setLoading(true);
     await firebase
       .auth()
       .signInWithEmailAndPassword(loginEmail, loginPass)
@@ -40,6 +43,7 @@ const Login = () => {
       .catch((err) => {
         console.log(err);
         toast(err.message);
+        setLoading(false);
       });
   };
 
@@ -59,7 +63,9 @@ const Login = () => {
 
   return (
     <div className='container'>
-      <h2 className='text-center pt-4 display-4'>Login / Register</h2>
+      <h2 className='text-center pt-4 display-4'>
+        {loading ? <SyncOutlined spin className='text-danger' /> : 'Login / Register'}
+      </h2>
 
       <Button
         onClick={googleLogin}
