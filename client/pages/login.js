@@ -5,6 +5,7 @@ import LoginRegisterForm from '../components/LoginRegisterForm';
 import { toast } from 'react-toastify';
 import { Button } from 'antd';
 import { GoogleOutlined, SyncOutlined } from '@ant-design/icons';
+import Link from 'next/link';
 
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState('test2@test.com');
@@ -97,6 +98,12 @@ const Login = () => {
           handleSubmit={register}
           buttonName='Register'
         />
+      </div>
+
+      <div className='d-flex'>
+        <Link href='/reset-password'>
+          <a className='btn btn-outline-danger btn-sm mt-5'>Reset Password</a>
+        </Link>
       </div>
     </div>
   );
