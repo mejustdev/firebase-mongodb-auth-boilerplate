@@ -1,9 +1,12 @@
 import express from 'express';
-import { currentUser, privateRoute, findOrCreateUser } from '../controllers/auth';
+// controllers
+import { currentUser, privateRoute } from '../controllers/auth';
+// middlewares
+import { findOrCreateUser } from '../middlewares';
 
 const router = express.Router();
 
 router.post('/current-user', findOrCreateUser, currentUser);
-router.get('/private-route', privateRoute);
+router.get('/private-route', findOrCreateUser, privateRoute);
 
 module.exports = router;
