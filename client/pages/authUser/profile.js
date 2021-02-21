@@ -11,18 +11,24 @@ const Profile = () => {
 };
 
 export async function getServerSideProps(context) {
-  const cookies = parseCookies(context);
-  console.log('NOOKIES SENDING TOKEN', cookies);
-  const { data } = await axios.get(`${process.env.api}/private-route`, {
-    headers: {
-      token: cookies.token,
-    },
-  });
-  console.log('PRIVATE ROUTE SERVER PROPS', data);
-
-  return {
-    props: {}, // will be passed to the page component as props
-  };
+  try {
+    const cookies = parseCookies(context);
+    //   console.log("NOOKIES SENDING TOKEN", cookies);
+    const { data } = await axios.get(`${process.env.api}/private-route`, {
+      headers: {
+        token: cookies.token,
+      },
+    });
+    if (data.ok) return { props: {} };
+  } catch (err) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: '/login',
+      },
+      props: {},
+    };
+  }
 }
 
 export default Profile;
