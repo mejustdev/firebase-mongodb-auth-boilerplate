@@ -8,8 +8,8 @@ import { GoogleOutlined, SyncOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 
 const Login = () => {
-  const [loginEmail, setLoginEmail] = useState('test2@test.com');
-  const [loginPass, setLoginPass] = useState('123456');
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPass, setLoginPass] = useState('');
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPass, setRegisterPass] = useState('');
   const [loading, setLoading] = useState(false);
