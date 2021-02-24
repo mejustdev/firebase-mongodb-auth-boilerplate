@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -r esm server.js"
+    "dev": "nodemon -r esm server.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,9 @@
     "firebase-admin": "^9.5.0",
     "mongoose": "^5.11.16",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.7"
+    "next": "^10.0.7",
+    "nodemon": "^2.0.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   }
 }
