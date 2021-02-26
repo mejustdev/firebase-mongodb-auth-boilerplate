@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "NODE_ENV=production node ../server/server.js -p $PORT"
+    "start": "NODE_ENV=production node -r esm ../server/server.js -p $PORT"
   },
   "keywords": [],
   "author": "",
@@ -18,10 +18,13 @@
     "bootstrap": "^4.6.0",
     "dotenv": "^8.2.0",
     "firebase": "^8.2.7",
-    "next": "^10.0.6",
+    "next": "^10.0.7",
     "nookies": "^2.5.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-toastify": "^7.0.3"
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.2.0"
   }
 }
