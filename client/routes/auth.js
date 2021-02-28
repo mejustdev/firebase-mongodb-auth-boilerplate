@@ -1,7 +1,7 @@
 import express from 'express';
-// controllers
+
 import { currentUser, privateRoute } from '../controllers/auth';
-// middlewares
+
 import { findOrCreateUser } from '../middlewares';
 
 const router = express.Router();
