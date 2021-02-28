@@ -51,15 +51,12 @@ const handle = app.getRequestHandler();
 require('dotenv').config();
 
 mongoose
-  .connect(
-    'mongodb+srv://mergorgec:7wfDlCOI7EZQgANN@firemon.2cdvn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-      useCreateIndex: true,
-    },
-  )
+  .connect(process.env.DATABASE, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+  })
   .then(() => console.log(`DB Connected`))
   .catch((err) => console.log('DB connection error ', err));
 
