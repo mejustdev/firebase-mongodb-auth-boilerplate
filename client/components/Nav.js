@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useContext } from 'react';
-import { Context } from '../context';
+import { Context } from '../pages/_app';
 import firebase from '../firebase';
 import { useRouter } from 'next/router';
 

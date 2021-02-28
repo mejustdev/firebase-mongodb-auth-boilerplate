@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import firebase from '../firebase';
-import { Context } from '../context';
+import { Context } from '../pages/_app';
 import { axiosAuth } from '../actions/axios';
 import { setCookie, destroyCookie } from 'nookies';
 
