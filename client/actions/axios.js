@@ -3,14 +3,14 @@ import firebase from '../firebase/firebase.js';
 
 export const axiosPublic = axios.create({
   baseURL:
-    NODE_ENV === 'production'
+    process.env.NODE_ENV === 'production'
       ? 'https://limitless-reef-22338.herokuapp.com/api'
       : 'http://localhost:8000/api',
 });
 
 export const axiosAuth = axios.create({
   baseURL:
-    NODE_ENV === 'production'
+    process.env.NODE_ENV === 'production'
       ? 'https://limitless-reef-22338.herokuapp.com/api'
       : 'http://localhost:8000/api',
 });
