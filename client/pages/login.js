@@ -1,4 +1,4 @@
-import firebase from '../firebase';
+import firebase from '../firebase/firebase.js';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import LoginRegisterForm from '../components/LoginRegisterForm';
@@ -21,7 +21,7 @@ const Login = () => {
       .auth()
       .createUserWithEmailAndPassword(registerEmail, registerPass)
       .then((user) => {
-        console.log('REGISTER', user);
+        // console.log('REGISTER', user);
         router.push('/');
       })
       .catch((err) => {
@@ -38,7 +38,7 @@ const Login = () => {
       .auth()
       .signInWithEmailAndPassword(loginEmail, loginPass)
       .then((user) => {
-        console.log('LOGIN', user);
+        // console.log('LOGIN', user);
         router.push('/');
       })
       .catch((err) => {
@@ -53,7 +53,7 @@ const Login = () => {
       .auth()
       .signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((user) => {
-        console.log('LOGIN', user);
+        // console.log('LOGIN', user);
         router.push('/');
       })
       .catch((err) => {

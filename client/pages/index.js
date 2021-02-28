@@ -1,4 +1,4 @@
-import { Context } from '../pages/_app';
+import { Context } from '../context';
 import { useContext } from 'react';
 
 const Home = () => {

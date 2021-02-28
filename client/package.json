@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "node -r esm server.js -p $PORT",
     "build": "next build",
-    "start": "node -r esm ../server/server.js -p $PORT"
+    "start": "NODE_ENV=production node -r esm server.js -p $PORT"
   },
   "keywords": [],
   "author": "",
@@ -16,9 +16,14 @@
     "antd": "^4.12.3",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",
+    "express": "^4.17.1",
     "firebase": "^8.2.7",
+    "firebase-admin": "^9.5.0",
+    "mongoose": "^5.11.18",
+    "morgan": "^1.10.0",
     "next": "^10.0.7",
     "nookies": "^2.5.2",
     "react": "^17.0.1",
@@ -27,5 +32,14 @@
   },
   "devDependencies": {
     "eslint-plugin-react-hooks": "^4.2.0"
+  },
+  "cacheDirectories": [
+    ".next/cache"
+  ],
+  "browser": {
+    "child_process": false
+  },
+  "engines": {
+    "node": ">=12.x"
   }
 }

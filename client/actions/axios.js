@@ -1,12 +1,12 @@
 import axios from 'axios';
-import firebase from '../firebase';
+import firebase from '../firebase/firebase.js';
 
 export const axiosPublic = axios.create({
-  baseURL: process.env.api,
+  baseURL: 'http://localhost:8000/api',
 });
 
 export const axiosAuth = axios.create({
-  baseURL: process.env.api,
+  baseURL: 'http://localhost:8000/api',
 });
 
 axiosAuth.interceptors.request.use(

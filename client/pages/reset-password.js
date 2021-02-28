@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
-import firebase from '../firebase';
+import firebase from '../firebase/firebase.js';
 import { useRouter } from 'next/router';
-import { Context } from '../pages/_app';
+import { Context } from '../context';
 import { toast } from 'react-toastify';
 
 const PasswordReset = () => {

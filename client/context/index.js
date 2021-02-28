@@ -1,30 +1,31 @@
-// // import
-// import { createContext, useReducer } from 'react';
-// // reducer
-// const reducer = (state, action) => {
-//   switch (action.type) {
-//     case 'LOGIN':
-//       return { ...state, user: action.payload };
-//     case 'LOGOUT':
-//       return { ...state, user: null };
-//     default:
-//       return state;
-//   }
-// };
+// import
+import { createContext, useReducer } from 'react';
 
-// // initial state
-// const intialState = {
-//   user: 'Mehmet',
-// };
-// const [state, dispatch] = useReducer(reducer, intialState);
+// reducer
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'LOGIN':
+      return { ...state, user: action.payload };
+    case 'LOGOUT':
+      return { ...state, user: null };
+    default:
+      return state;
+  }
+};
 
-// // create context
-// const Context = createContext({});
+// initial state
+const intialState = {
+  user: '',
+};
 
-// // context provider
-// const Provider = ({ children }) => {
-//   // const value = { state, dispatch };
-//   return <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>;
-// };
+// create context
+const Context = createContext({});
 
-// export { Context, Provider };
+// context provider
+const Provider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, intialState);
+  const value = { state, dispatch };
+  return <Context.Provider value={value}>{children}</Context.Provider>;
+};
+
+export { Context, Provider };
