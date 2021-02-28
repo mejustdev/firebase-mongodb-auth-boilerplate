@@ -1,7 +1,7 @@
 module.exports = {
   env: {
-    api: 'http://localhost:8000/api',
-    passwordResetRedirect: 'http://localhost:3000/login',
+    api: 'https://limitless-reef-22338.herokuapp.com/api',
+    passwordResetRedirect: 'https://limitless-reef-22338.herokuapp.com/login',
     NEXT_PUBLIC_FB_API_KEY: 'AIzaSyC0AlyJ3sJm8AxzxS14Ph8iEVxKjE8RbW8',
     NEXT_PUBLIC_FB_AUTH_DOMAIN: 'firemon-51310.firebaseapp.com',
     FB_PROJECT_ID: 'firemon-51310',
