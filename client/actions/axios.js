@@ -2,11 +2,11 @@ import axios from 'axios';
 import firebase from '../firebase/firebase.js';
 
 export const axiosPublic = axios.create({
-  baseURL: 'http://localhost:8000/api',
+  baseURL: 'https://limitless-reef-22338.herokuapp.com/api',
 });
 
 export const axiosAuth = axios.create({
-  baseURL: 'http://localhost:8000/api',
+  baseURL: 'https://limitless-reef-22338.herokuapp.com/api',
 });
 
 axiosAuth.interceptors.request.use(
